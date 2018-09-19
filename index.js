@@ -8,11 +8,22 @@ const sKey = ""; // IE: "abc123def456hij789abc123def456hij789"
 const iKey = ""; // IE: "ABCDEF123456789"
 const host = request.url.split("/")[2].toLowerCase(); // IE: "api-xxxxxxxx.duosecurity.com"
 const path = request.url.replace(/^.*\/\/[^\/]+/, ''); // IE: "/admin/v1/users"
-const params = ""; // IE: "realname=First%20Last&username=root"
 
 //
 // End user variables.
 //
+
+var bodyParams = request.data || [];
+
+// Sort the params
+const paramKeys = Object.keys(bodyParams).sort();
+var params = [];
+for(var i = 0; i < paramKeys.length; i++) {
+    var key = paramKeys[i];
+    var value = bodyParams[key];
+    params.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
+}
+var paramString = params.join('&');
 
 const content_type = 'application/x-www-form-urlencoded';
 const method = request.method.toUpperCase();
