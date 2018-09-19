@@ -6,8 +6,8 @@
 // You only need to mess with the following variables.
 const sKey = ""; // IE: "abc123def456hij789abc123def456hij789"
 const iKey = ""; // IE: "ABCDEF123456789"
-const host = "api-xxxxxxxx.duosecurity.com"; // IE: "api-xxxxxxxx.duosecurity.com"
-const path = "/admin/v1/users"; // IE: "/admin/v1/users"
+const host = request.url.split("/")[2].toLowerCase(); // IE: "api-xxxxxxxx.duosecurity.com"
+const path = request.url.replace(/^.*\/\/[^\/]+/, ''); // IE: "/admin/v1/users"
 const params = ""; // IE: "realname=First%20Last&username=root"
 
 //
