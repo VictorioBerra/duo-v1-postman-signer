@@ -3,7 +3,7 @@ Use the Duo v1 API via sha1 using the v2 signature all inside Postman.
 
 ## Usage
 
-Copy contents of `index.js` to Postman Pre-request scripts tab. Edit the top few variables, update your headers with the variable syntax {{var}}.
+Copy contents of `index.js` to Postman Pre-request scripts tab. Edit the top few variables, update your headers with the variable syntax `{{var}}`.
 
 Read the comments.
 
