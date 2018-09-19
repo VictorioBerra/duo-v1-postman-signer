@@ -22,7 +22,7 @@ var date = new Date().toUTCString();
 var canon = [date, method.toUpperCase(), host.toLowerCase(), path, params].join('\n');
 
 // sign canonical string
-var sig  = CryptoJS.HmacSHA1(canon, sKey).toString(CryptoJS.enc.Hex);
+var sig  = CryptoJS.HmacSHA1(canon, sKey);
 
 // Build Headers
 var auth =  `${iKey}:${sig}`;
