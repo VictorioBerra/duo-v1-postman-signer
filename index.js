@@ -30,7 +30,7 @@ const method = request.method.toUpperCase();
 
 // create canonical string
 var date = new Date().toUTCString();
-var canon = [date, method.toUpperCase(), host.toLowerCase(), path, params].join('\n');
+var canon = [date, method.toUpperCase(), host.toLowerCase(), path, paramString].join('\n');
 
 // sign canonical string
 var sig  = CryptoJS.HmacSHA1(canon, sKey);
