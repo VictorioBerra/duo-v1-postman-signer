@@ -2,6 +2,7 @@
 // HMAC Duo v1 API Signing Pre-Request script.
 //
 // - Tory Berra 9/19/2018
+var CryptoJS = require("crypto-js");
 
 // You only need to mess with the following variables.
 const sKey = ""; // IE: "abc123def456hij789abc123def456hij789"
@@ -38,9 +39,9 @@ var sig  = CryptoJS.HmacSHA1(canon, sKey);
 // Build Headers
 var auth =  `${iKey}:${sig}`;
 var base64 = Buffer.from(auth).toString('base64');
- 
+
 // Make sure you set these in the Headers tab of Postman
 // IE: Header: Date, Value: {{Date}}
-postman.setEnvironmentVariable('Date', date);
-postman.setEnvironmentVariable('Content-Type', content_type);
-postman.setEnvironmentVariable('Authorization', "Basic " + base64);
+pm.environment.set("Date", date);
+pm.environment.set("Content-Type", content_type);
+pm.environment.set("Authorization", "Basic " + base64);
