@@ -7,8 +7,8 @@ var CryptoJS = require("crypto-js");
 // You only need to mess with the following variables.
 const sKey = ""; // IE: "abc123def456hij789abc123def456hij789"
 const iKey = ""; // IE: "ABCDEF123456789"
-const host = ""; // IE: "api-xxxxxxxx.duosecurity.com"
-const path = ""; // IE: "/admin/v1/users"
+const host = request.url.split("/")[2].toLowerCase(); // IE: "api-xxxxxxxx.duosecurity.com"
+const path = request.url.replace(/^.*\/\/[^\/]+/, ''); // IE: "/admin/v1/users"
 
 //
 // End user variables.
