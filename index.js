@@ -27,8 +27,7 @@ for(var i = 0; i < paramKeys.length; i++) {
 var paramString = params.join('&');
 
 const content_type = 'application/x-www-form-urlencoded';
-//const method = request.method.toUpperCase();
-const method = "GET";
+const method = request.method.toUpperCase();
 
 // create canonical string
 var date = new Date().toUTCString();
